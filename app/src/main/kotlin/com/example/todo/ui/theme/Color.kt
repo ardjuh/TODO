@@ -33,6 +33,18 @@ val primaryContainerDark = Color(0xFF005C7D)
 val secondaryDark = Color(0xFFB0CADC)
 val tertiaryDark = Color(0xFFE6B5F8)
 
+//Vibrant but slightly muted colors for task and group accents
+val prettyRed = Color(0xFFB84A5A)
+val prettyOrange = Color(0xFFB86A3D)
+val prettyYellow = Color(0xFFC49A3A)
+val prettyGreen = Color(0xFF56835A)
+val prettyBlue = Color(0xFF4A7898)
+val prettyPurple = Color(0xFF80649A)
+val prettyPink = Color(0xFFB66D8B)
+val prettyTeal = Color(0xFF43877F)
+val prettyBrown = Color(0xFF8A6853)
+val prettyGray = Color(0xFF737A82)
+
 //End - Partial Color List
 
 /*
