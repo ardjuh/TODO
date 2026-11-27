@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.stateIn
 class MainScreenViewModel(dataRepository: DataRepository) : ViewModel() {
   val uiState: StateFlow<MainScreenUiState> =
     dataRepository.data
-      .map<List<String>, MainScreenUiState>(::Success)
+      .map<List<TodoListItem>, MainScreenUiState>(::Success)
       .catch { emit(MainScreenUiState.Error(it)) }
       .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), MainScreenUiState.Loading)
 }
@@ -23,5 +23,5 @@ sealed interface MainScreenUiState {
 
   data class Error(val throwable: Throwable) : MainScreenUiState
 
-  data class Success(val data: List<String>) : MainScreenUiState
+  data class Success(val data: List<TodoListItem>) : MainScreenUiState
 }

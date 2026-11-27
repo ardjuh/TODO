@@ -61,7 +61,7 @@ fun MainScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun MainScreen(
-    data: List<String>,
+    data: List<TodoListItem>,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
@@ -91,32 +91,20 @@ internal fun MainScreen(
             modifier = Modifier.padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            data.forEach { Greeting(it) }
-            Button(
-                modifier = Modifier.padding(24.dp, 24.dp),
-                onClick = { /* Button clicked */ }
-            ) {
-                Text("OK")
-            }
-
+            data.forEach { TodoListItemRow(item = it) }
             // TODO: Extend app UI with more Jetpack Compose UI elements here
 
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name !",
-        modifier = modifier.padding(16.dp, 16.dp),
-        style = MaterialTheme.typography.bodyLarge
-    )
-}
-
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun MainScreenPreview() {
-    TODOTheme { MainScreen(listOf("Android")) }
+    TODOTheme {
+        MainScreen(
+            listOf(TodoListItem(title = "Android", groupId = "default"))
+        )
+    }
 }
 

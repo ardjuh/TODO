@@ -14,12 +14,14 @@ class MainScreenTest {
 
   @Before
   fun setup() {
-    composeTestRule.setContent { MainScreen(FAKE_DATA) }
+    composeTestRule.setContent {
+      MainScreen(FAKE_DATA.map { TodoListItem(title = it, groupId = "default") })
+    }
   }
 
   @Test
   fun firstItem_exists() {
-    FAKE_DATA.forEach { composeTestRule.onNodeWithText("Hello $it!").assertExists() }
+    FAKE_DATA.forEach { composeTestRule.onNodeWithText(it).assertExists() }
   }
 }
 

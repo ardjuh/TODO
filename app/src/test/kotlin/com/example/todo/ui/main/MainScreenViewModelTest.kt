@@ -23,5 +23,7 @@ class MainScreenViewModelTest {
 }
 
 private class FakeMyModelRepository : DataRepository {
-  override val data: Flow<List<String>> = flow { emit(listOf("Sample")) }
+  override val data: Flow<List<TodoListItem>> = flow {
+    emit(listOf(TodoListItem(title = "Sample", groupId = "default")))
+  }
 }
